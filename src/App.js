@@ -1,7 +1,10 @@
+import { SlCalender } from "react-icons/sl";
+import { MdOutlineEmojiFoodBeverage } from "react-icons/md";
+
 function App() {
   return (
     <div className="App">
-      <h1>Your bookings</h1>
+      <h1><SlCalender /> Your bookings <MdOutlineEmojiFoodBeverage /></h1>
     </div>
   );
 }
