@@ -3,22 +3,20 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Dropdown from 'react-bootstrap/Dropdown';
 
 const Search = () => {
     return (
         <Navbar className="bg-body-tertiary justify-content-between">
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Sort By
-            </Dropdown.Toggle>
-      
-            <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Name</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Date</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Priority</Dropdown.Item>
-            </Dropdown.Menu>
-        </Dropdown>
+          <div>
+            <Navbar.Brand>Sort By</Navbar.Brand>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="Pet Name" />
+              <Form.Check type="checkbox" label="Owner Name" />
+              <Form.Check type="checkbox" label="Date" />
+              <Form.Check type="checkbox" label="Ascending" />
+              <Form.Check type="checkbox" label="Descending" />
+            </Form.Group>
+          </div>
       
           <Form inline>
             <Row>
