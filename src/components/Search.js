@@ -3,8 +3,11 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useState } from 'react';
 
 const Search = () => {
+  const [searchtext, setSearchtext] = useState('');
+
     return (
         <Navbar className="bg-body-tertiary justify-content-between">
           <div>
@@ -25,10 +28,12 @@ const Search = () => {
                   type="text"
                   placeholder="keywords"
                   className=" mr-sm-2"
+                  value={searchtext}
+                  onChange={e => setSearchtext(e.target.value)}
                 />
               </Col>
               <Col xs="auto">
-                <Button type="submit">Search</Button>
+                <Button type="submit" onClick={() => alert(searchtext)}>Search</Button>
               </Col>
             </Row>
           </Form>
