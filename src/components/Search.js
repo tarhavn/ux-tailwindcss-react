@@ -10,13 +10,13 @@ const Search = () => {
         <Navbar className="bg-body-tertiary justify-content-between">
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Dropdown Button
+              Sort By
             </Dropdown.Toggle>
       
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              <Dropdown.Item href="#/action-1">Name</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Date</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Priority</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
       
