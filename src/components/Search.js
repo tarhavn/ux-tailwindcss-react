@@ -5,20 +5,22 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useState } from 'react';
 
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 const Search = () => {
   const [searchtext, setSearchtext] = useState('');
 
     return (
         <Navbar className="bg-body-tertiary justify-content-between">
           <div>
-            <Navbar.Brand>Sort By</Navbar.Brand>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Pet Name" />
-              <Form.Check type="checkbox" label="Owner Name" />
-              <Form.Check type="checkbox" label="Date" />
-              <Form.Check type="checkbox" label="Ascending" />
-              <Form.Check type="checkbox" label="Descending" />
-            </Form.Group>
+            <NavDropdown title="Sort By" id="collapsible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Pet Name</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Owner Name</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.3">Date</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Ascending</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Descending</NavDropdown.Item>
+            </NavDropdown>
           </div>
       
           <Form inline>
