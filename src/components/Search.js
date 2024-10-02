@@ -12,14 +12,16 @@ const Search = () => {
 
     return (
         <Navbar className="bg-body-tertiary justify-content-between">
+          <Button href='/' variant="secondary">Homepage</Button>
+
           <div>
             <NavDropdown title="Sort By" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Pet Name</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Owner Name</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => console.log("console log pet name")}>Pet Name</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => console.log("console log owner name")}>Owner Name</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">Date</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">Ascending</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">Descending</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => console.log("console log date")}>Date</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => console.log("console log asending")}>Ascending</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => console.log("console log descending")}>Descending</NavDropdown.Item>
             </NavDropdown>
           </div>
       
@@ -39,6 +41,7 @@ const Search = () => {
               </Col>
             </Row>
           </Form>
+
         </Navbar>
     )
 }
