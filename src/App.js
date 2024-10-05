@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from './components/Search';
-import { SlCalender } from "react-icons/sl";
 import AppointmentInfo from './components/AppointmentInfo';
 import { useState, useEffect, useCallback } from 'react';
+import AddAppointmentInfo from './components/AddAppointmentInfo';
 
 function App() {
   let [appointmentList, setAppointmentList] = useState([]);
@@ -21,10 +21,14 @@ function App() {
 
   return (
     <div className="App container">
-      <h1><SlCalender /> Your bookings</h1>
+      <br />
       <Search />
+      <br />
+      <AddAppointmentInfo />
+      <br />
+      <h1>Your bookings</h1>
 
-      <ul className="comment">
+      <ul>
         {appointmentList
           .map(appointment => (
             <AppointmentInfo key={appointment.id}
