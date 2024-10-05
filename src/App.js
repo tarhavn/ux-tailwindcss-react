@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from './components/Search';
 import { SlCalender } from "react-icons/sl";
 import appointmentList from './data.json'
+import AppointmentInfo from './components/AppointmentInfo';
 
 function App() {
   return (
@@ -12,15 +13,9 @@ function App() {
       <ul className="comment">
         {appointmentList
           .map(appointment => (
-            <li>
-              <button type="button">Delete</button>
-              <div>
-                <div><b>Pet name: </b>{appointment.petName}</div>
-                <div><b>Appointment date: </b>{appointment.aptDate}</div>
-                <div><b>Owner: </b>{appointment.ownerName}</div>
-                <div><b>Consultation note: </b>{appointment.aptNotes}</div>
-              </div>
-          </li>
+            <AppointmentInfo key={appointment.id}
+              appointment={appointment}
+            />
           ))
         }
       </ul>
