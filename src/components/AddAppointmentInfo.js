@@ -3,8 +3,6 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 
 const AddAppointmentInfo = () => {
-    //Apt date
-    //Apt time
     return (
         <Form>
             <h2>Add new a appointment information</h2>
@@ -34,6 +32,7 @@ const AddAppointmentInfo = () => {
             </InputGroup>
 
             <Button as="input" type="submit" value="Submit" />{' '}
+            <Button variant="secondary">Cancel</Button>
         </Form>
     )
 }

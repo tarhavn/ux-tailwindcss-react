@@ -3,45 +3,50 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import { useState } from 'react';
 
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const MyNavbar = () => {
   const [searchtext, setSearchtext] = useState('');
 
     return (
         <Navbar className="bg-body-tertiary justify-content-between">
-          <Button href='/' variant="secondary">Homepage</Button>
-
-          <div>
-            <NavDropdown title="Sort By" id="collapsible-nav-dropdown">
-              <NavDropdown.Item onClick={() => console.log("console log pet name")}>Pet Name</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => console.log("console log owner name")}>Owner Name</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item onClick={() => console.log("console log date")}>Date</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => console.log("console log asending")}>Ascending</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => console.log("console log descending")}>Descending</NavDropdown.Item>
-            </NavDropdown>
-          </div>
-      
-          <Form inline>
+          <Container>
             <Row>
-              <Col xs="auto">
+              <Col><Button href='/' variant="secondary">Homepage</Button></Col>
+
+              <Col><Button variant="success">Appointment</Button></Col>
+
+              <Col>
+                <Form inline>
                 <Form.Control
-                  type="text"
-                  placeholder="keywords"
-                  className=" mr-sm-2"
-                  value={searchtext}
-                  onChange={e => setSearchtext(e.target.value)}
-                />
+                    type="text"
+                    placeholder="keyword"
+                    className=" mr-sm-2"
+                    value={searchtext}
+                    onChange={e => setSearchtext(e.target.value)}
+                  />
+                </Form>
               </Col>
-              <Col xs="auto">
-                <Button type="submit" onClick={() => alert(searchtext)}>Search</Button>
+
+              <Col><Button type="submit" onClick={() => alert(searchtext)}>Search</Button></Col>
+
+              <Col>
+              <DropdownButton as={ButtonGroup} title="Sort by" id="bg-nested-dropdown">
+                <Dropdown.Item onClick={() => console.log("console log pet name")} eventKey="1">Pet Name</Dropdown.Item>
+                <Dropdown.Item eventKey="2">Owner Name</Dropdown.Item>
+                <Dropdown.Item eventKey="3">Date</Dropdown.Item>
+                <Dropdown.Item eventKey="4">Ascending</Dropdown.Item>
+                <Dropdown.Item eventKey="5">Descending</Dropdown.Item>
+              </DropdownButton>
               </Col>
             </Row>
-          </Form>
 
+          </Container>
         </Navbar>
     )
 }
