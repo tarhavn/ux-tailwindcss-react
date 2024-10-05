@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Search from './components/Search';
+import MyNavbar from './components/MyNavbar';
 import AppointmentInfo from './components/AppointmentInfo';
 import { useState, useEffect, useCallback } from 'react';
 import AddAppointmentInfo from './components/AddAppointmentInfo';
@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App container">
       <br />
-      <Search />
+      <MyNavbar />
       <br />
       <AddAppointmentInfo />
       <br />

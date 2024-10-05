@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-const Search = () => {
+const MyNavbar = () => {
   const [searchtext, setSearchtext] = useState('');
 
     return (
@@ -46,4 +46,4 @@ const Search = () => {
     )
 }
 
-export default Search;
+export default MyNavbar;
