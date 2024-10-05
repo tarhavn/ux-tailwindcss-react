@@ -3,22 +3,27 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Dropdown from 'react-bootstrap/Dropdown';
+import { useState } from 'react';
+
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const Search = () => {
+  const [searchtext, setSearchtext] = useState('');
+
     return (
         <Navbar className="bg-body-tertiary justify-content-between">
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Sort By
-            </Dropdown.Toggle>
-      
-            <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Name</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Date</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Priority</Dropdown.Item>
-            </Dropdown.Menu>
-        </Dropdown>
+          <Button href='/' variant="secondary">Homepage</Button>
+
+          <div>
+            <NavDropdown title="Sort By" id="collapsible-nav-dropdown">
+              <NavDropdown.Item onClick={() => console.log("console log pet name")}>Pet Name</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => console.log("console log owner name")}>Owner Name</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item onClick={() => console.log("console log date")}>Date</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => console.log("console log asending")}>Ascending</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => console.log("console log descending")}>Descending</NavDropdown.Item>
+            </NavDropdown>
+          </div>
       
           <Form inline>
             <Row>
@@ -27,13 +32,16 @@ const Search = () => {
                   type="text"
                   placeholder="keywords"
                   className=" mr-sm-2"
+                  value={searchtext}
+                  onChange={e => setSearchtext(e.target.value)}
                 />
               </Col>
               <Col xs="auto">
-                <Button type="submit">Search</Button>
+                <Button type="submit" onClick={() => alert(searchtext)}>Search</Button>
               </Col>
             </Row>
           </Form>
+
         </Navbar>
     )
 }
