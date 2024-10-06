@@ -7,6 +7,8 @@ import AddAppointmentInfo from './components/AddAppointmentInfo';
 function App() {
   let [appointmentList, setAppointmentList] = useState([]);
   let [query, SetQuery] = useState("");
+  let [sortBy, SetSortBy] = useState("petName"); //ownerName or petName etc
+  let [orderBy, SetOrderBy] = useState("asc"); //asc or desc
 
   const filteredAppointments = appointmentList.filter(
     item => {
@@ -16,7 +18,13 @@ function App() {
         item.aptNotes.toLowerCase().includes(query.toLowerCase())
       )
     }
-  )
+  ).sort((a, b) => {
+    let order = (orderBy === 'asc') ? 1 : -1;
+    return (
+      a[sortBy].toLowerCase() < b[sortBy].toLowerCase() 
+        ? -1 * order : 1 * order 
+    )
+  })
 
   const fetchData = useCallback(() => {
     fetch('./data.json')
