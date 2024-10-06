@@ -10,7 +10,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-const MyNavbar = () => {
+const MyNavbar = ({ query, onQueryChange }) => {
   const [searchtext, setSearchtext] = useState('');
 
     return (
@@ -34,7 +34,7 @@ const MyNavbar = () => {
               </Col>
 
               <Col><Button type="submit" onClick={() => alert(searchtext)}>Search</Button></Col>
-
+              
               <Col>
               <DropdownButton as={ButtonGroup} title="Sort by" id="bg-nested-dropdown">
                 <Dropdown.Item onClick={() => console.log("console log pet name")} eventKey="1">Pet Name</Dropdown.Item>
@@ -44,6 +44,10 @@ const MyNavbar = () => {
                 <Dropdown.Item eventKey="5">Descending</Dropdown.Item>
               </DropdownButton>
               </Col>
+
+              <Col><input type="text" name="query" id="query" value={query} 
+                onChange={(event) => {onQueryChange(event.target.value)}}
+                placeholder="Search" /></Col>
             </Row>
 
           </Container>
