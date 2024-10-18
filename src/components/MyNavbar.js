@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 
 const MyNavbar = ({ query, onQueryChange }) => {
     return (
@@ -20,9 +22,14 @@ const MyNavbar = ({ query, onQueryChange }) => {
                 <Dropdown.Item onClick={() => console.log("console log pet name")} eventKey="1">Pet Name</Dropdown.Item>
                 <Dropdown.Item eventKey="2">Owner Name</Dropdown.Item>
                 <Dropdown.Item eventKey="3">Date</Dropdown.Item>
-                <Dropdown.Item eventKey="4">Ascending</Dropdown.Item>
-                <Dropdown.Item eventKey="5">Descending</Dropdown.Item>
               </DropdownButton>
+              </Col>
+
+              <Col>
+              <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
+                <ToggleButton id="tbg-radio-1" value={1}>Ascending</ToggleButton>
+                <ToggleButton id="tbg-radio-2" value={2}>Descending</ToggleButton>
+              </ToggleButtonGroup>
               </Col>
 
               <Col><input type="text" name="query" id="query" value={query} 
