@@ -9,7 +9,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 
-const MyNavbar = ({ query, onQueryChange }) => {
+const MyNavbar = ({ query, onQueryChange, sortBy, onSortByChange, orderBy, onOrderByChange }) => {
     return (
         <Navbar className="bg-body-tertiary justify-content-between">
           <Container>
@@ -19,16 +19,16 @@ const MyNavbar = ({ query, onQueryChange }) => {
               
               <Col>
               <DropdownButton as={ButtonGroup} title="Sort by" id="bg-nested-dropdown">
-                <Dropdown.Item onClick={() => console.log("console log pet name")} eventKey="1">Pet Name</Dropdown.Item>
-                <Dropdown.Item eventKey="2">Owner Name</Dropdown.Item>
-                <Dropdown.Item eventKey="3">Date</Dropdown.Item>
+                <Dropdown.Item onClick={() => onSortByChange('petName')} eventKey="1">Pet Name</Dropdown.Item>
+                <Dropdown.Item onClick={() => onSortByChange('ownerName')} eventKey="2">Owner Name</Dropdown.Item>
+                <Dropdown.Item onClick={() => onSortByChange('aptDate')} eventKey="3">Date</Dropdown.Item>
               </DropdownButton>
               </Col>
 
               <Col>
               <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
-                <ToggleButton id="tbg-radio-1" value={1}>Ascending</ToggleButton>
-                <ToggleButton id="tbg-radio-2" value={2}>Descending</ToggleButton>
+                <ToggleButton onClick={() => onOrderByChange('asc')} id="tbg-radio-1" value={1}>Ascending</ToggleButton>
+                <ToggleButton onClick={() => onOrderByChange('dec')} id="tbg-radio-2" value={2}>Descending</ToggleButton>
               </ToggleButtonGroup>
               </Col>
 
